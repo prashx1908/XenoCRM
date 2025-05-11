@@ -1,20 +1,18 @@
-# XenoCRM – Mini CRM Platform
+# XenoCRM – Mini CRM Platform 🚀
 
-## 🚀 Overview
-XenoCRM is a modern, full-stack mini CRM platform that enables customer segmentation, personalized campaign delivery, and intelligent insights. Built as part of the Xeno SDE Internship assignment, it demonstrates real-world CRM challenges using scalable, creative, and AI-powered solutions.
+Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the Xeno SDE Internship assignment. XenoCRM empowers you to segment customers, deliver personalized campaigns, and gain actionable insights—all with a clean, intuitive experience.
 
 ---
 
-## ✨ Features
-- **Secure Data Ingestion APIs** for customers and orders (with Swagger UI docs)
-- **Pub-Sub Architecture** using Kafka (bonus)
+## ✨ Key Features
+- **Secure REST APIs** for ingesting customers and orders (with Swagger UI docs)
 - **Dynamic Campaign Builder** with flexible AND/OR rule logic
 - **Audience Preview** before saving segments
 - **Campaign History** with delivery stats (sent, failed, audience size)
 - **Personalized Campaign Delivery** with simulated vendor API (90% sent, 10% failed)
 - **Delivery Receipt API** for real-time status updates
-- **Google OAuth 2.0 Authentication** (only logged-in users can create/view campaigns)
-- **AI-Powered Message Suggestions** (context-aware, up to 6 variants per campaign)
+- **Google OAuth 2.0 Authentication** *(pending approval, will be live in 2-3 days)*
+- **Rule-Based Message Suggestions** (context-aware, up to 6 variants per campaign)
 - **Clean, Intuitive UX** (React + Material UI)
 - **Deployed on Vercel (frontend) & Render (backend)**
 
@@ -31,7 +29,7 @@ XenoCRM is a modern, full-stack mini CRM platform that enables customer segmenta
 - ![Audience Preview](./screenshots/audience_preview.png)
 - ![Campaign History](./screenshots/campaign_history.png)
 - ![Swagger UI](./screenshots/swagger.png)
-- ![AI Message Suggestions](./screenshots/ai_suggestions.png)
+- ![Message Suggestions](./screenshots/ai_suggestions.png)
 
 ---
 
@@ -39,24 +37,22 @@ XenoCRM is a modern, full-stack mini CRM platform that enables customer segmenta
 - **Frontend:** React.js (Vite, Material UI)
 - **Backend:** Node.js (Express)
 - **Database:** MongoDB Atlas
-- **Authentication:** Google OAuth 2.0
-- **Pub-Sub:** Kafka (bonus)
-- **AI:** Custom logic for message suggestions (OpenAI/LLM ready)
+- **Authentication:** Google OAuth 2.0 *(pending approval)*
 - **Deployment:** Vercel (frontend), Render (backend)
 
 ---
 
-## 🧠 AI Features
-- **AI-Driven Message Suggestions:**
+## 🧠 Smart Features
+- **Rule-Based Message Suggestions:**
   - Context-aware suggestions based on campaign objective (up to 6 variants)
   - Keyword mapping for loyalty, winback, new, premium, and discount campaigns
-  - Easily extendable to use OpenAI or other LLM APIs for more advanced suggestions
+  - No external AI/LLM APIs used; logic is fully rule-based and easily extendable
 
 ---
 
 ## 🔒 Authentication
-- Google OAuth 2.0 integration
-- Only authenticated users can create/view campaigns
+- Google OAuth 2.0 integration *(pending Google approval; will be enabled in 2-3 days)*
+- Only authenticated users can create/view campaigns (once enabled)
 
 ---
 
@@ -85,9 +81,6 @@ XenoCRM is a modern, full-stack mini CRM platform that enables customer segmenta
    npm install
    npm run dev
    ```
-4. **Kafka (optional):**
-   - Start Kafka and Zookeeper locally or use a managed service
-   - Update backend config as needed
 
 ---
 
@@ -98,15 +91,14 @@ XenoCRM is a modern, full-stack mini CRM platform that enables customer segmenta
 ---
 
 ## 📝 AI Tools & Tech Used
-- Custom keyword-based logic for message suggestions
-- (Optional) OpenAI API for advanced message generation
-- (Optional) LLMs for natural language to rule conversion
+- No external AI/LLM APIs used
+- All message suggestions are generated using custom rule-based logic
 
 ---
 
 ## ⚡ Known Limitations / Assumptions
-- Kafka pub-sub is optional and can be disabled for local/dev
-- AI features are keyword-based by default; LLM integration is ready but not enabled by default
+- No pub-sub architecture (Kafka, RabbitMQ, etc.) implemented
+- Google OAuth is pending approval and will be enabled soon
 - Vendor API is simulated for demo purposes
 - Delivery stats are based on simulated responses
 - UI/UX is optimized for desktop
@@ -126,5 +118,5 @@ XenoCRM is a modern, full-stack mini CRM platform that enables customer segmenta
 
 ---
 
-## 🙏 Thanks for the Opportunity!
-If you have any questions, feel free to reach out. Looking forward to discussing my approach and learning more about Xeno!
+## 🙏 Thank You!
+Thank you for reviewing my submission! If you have any questions, feel free to reach out. I'm excited to discuss my approach and learn more about Xeno. 🚀 
