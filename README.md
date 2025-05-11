@@ -125,18 +125,5 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 
 ---
 
-## 📹 Demo Video
-- [Demo Video Link](#) *(To be added)*
-
----
-
-## 📚 Submission Checklist
-- [x] Public GitHub repo
-- [x] Deployed project (Vercel/Render)
-- [x] Demo video (to be added)
-- [x] README with setup, architecture, AI, and limitations
-
----
-
 ## 🙏 Thank You!
 Thank you for reviewing my submission! If you have any questions, feel free to reach out. I'm excited to discuss my approach and learn more about Xeno. 🚀
