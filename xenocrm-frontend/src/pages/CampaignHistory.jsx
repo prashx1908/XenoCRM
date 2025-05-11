@@ -35,7 +35,7 @@ import {
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import axios from 'axios';
+import api from '../config/api';
 import {
   LineChart,
   Line,
@@ -48,8 +48,6 @@ import {
   BarChart,
   Bar
 } from 'recharts';
-
-const API_URL = 'http://localhost:4000/api';
 
 function CampaignHistory() {
   const [campaigns, setCampaigns] = useState([]);
@@ -73,7 +71,7 @@ function CampaignHistory() {
   const fetchCampaignHistory = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_URL}/campaigns/history`, {
+      const response = await api.get('/campaigns/history', {
         params: {
           startDate: startDate.toISOString(),
           endDate: endDate.toISOString(),
@@ -92,7 +90,7 @@ function CampaignHistory() {
 
   const handleExport = async () => {
     try {
-      const response = await axios.get(`${API_URL}/campaigns/history/export`, {
+      const response = await api.get('/campaigns/history/export', {
         params: {
           startDate: startDate.toISOString(),
           endDate: endDate.toISOString(),
@@ -124,8 +122,6 @@ function CampaignHistory() {
   const formatPercentage = (num) => {
     return `${(num * 100).toFixed(1)}%`;
   };
-
-
 
   const sortedCampaigns = [...campaigns].sort((a, b) => {
     if (sortConfig.key === 'name') {

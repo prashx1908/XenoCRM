@@ -7,11 +7,13 @@ import Layout from './components/Layout';
 
 // Pages
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import CampaignBuilder from './pages/CampaignBuilder';
 import CampaignList from './pages/CampaignList';
 import CustomerAnalytics from './pages/CustomerAnalytics';
 import CampaignHistory from './pages/CampaignHistory';
+import CampaignDetails from './pages/CampaignDetails';
 
 // Create theme
 const theme = createTheme({
@@ -33,6 +35,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/auth/google" element={<Login />} />
           <Route
             path="/dashboard"
             element={
@@ -78,6 +82,14 @@ function App() {
             element={
               <Layout>
                 <CampaignHistory />
+              </Layout>
+            }
+          />
+          <Route
+            path="/campaigns/:id"
+            element={
+              <Layout>
+                <CampaignDetails />
               </Layout>
             }
           />
