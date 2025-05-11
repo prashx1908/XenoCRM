@@ -23,13 +23,33 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 
 ---
 
-## 🖥️ Screenshots
-- ![Login Page](./screenshots/login.png)
-- ![Campaign Builder](./screenshots/campaign_builder.png)
-- ![Audience Preview](./screenshots/audience_preview.png)
-- ![Campaign History](./screenshots/campaign_history.png)
-- ![Swagger UI](./screenshots/swagger.png)
-- ![Message Suggestions](./screenshots/ai_suggestions.png)
+## 🖥️ Screenshots & Walkthrough
+
+1. **Login Page**
+   - ![Login Page](./screenshots/1.png)
+2. **Home Page**
+   - ![Home Page 1](./screenshots/2.png)
+   - ![Home Page 2](./screenshots/3.png)
+3. **Create Campaign**
+   - ![Create Campaign](./screenshots/4.png)
+4. **AI Message Suggestion for Inactive Customer**
+   - ![AI Message Suggestion (Inactive)](./screenshots/5.png)
+5. **AI Message Suggestion for Loyal Customer**
+   - ![AI Message Suggestion (Loyal)](./screenshots/6.png)
+6. **Rule Building for Campaign**
+   - ![Rule Building](./screenshots/8.png)
+7. **Audience Preview (Based on Rule)**
+   - ![Audience Preview](./screenshots/7.png)
+8. **Campaign Preview**
+   - ![Campaign Preview](./screenshots/9.png)
+9. **Sending Message**
+   - ![Sending Message](./screenshots/10.png)
+10. **Campaign History with Stats and Details**
+    - ![Campaign History 1](./screenshots/11.png)
+    - ![Campaign History 2](./screenshots/12.png)
+11. **Customer Analytics Dashboard**
+    - ![Customer Analytics 1](./screenshots/13.png)
+    - ![Customer Analytics 2](./screenshots/14.png)
 
 ---
 
@@ -119,4 +139,4 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 ---
 
 ## 🙏 Thank You!
-Thank you for reviewing my submission! If you have any questions, feel free to reach out. I'm excited to discuss my approach and learn more about Xeno. 🚀 
+Thank you for reviewing my submission! If you have any questions, feel free to reach out. I'm excited to discuss my approach and learn more about Xeno. 🚀
