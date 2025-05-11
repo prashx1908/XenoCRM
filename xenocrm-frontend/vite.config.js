@@ -1,27 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  build: {
-    outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          mui: ['@mui/material', '@mui/icons-material'],
-          datefns: ['date-fns']
-        },
-      },
-    },
-  },
   server: {
-    port: 3000,
-    host: true,
+    port: 5173, // Set the default port to 5173
   },
-  optimizeDeps: {
-    include: ['date-fns']
-  }
 })
