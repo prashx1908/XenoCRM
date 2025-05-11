@@ -12,6 +12,7 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           mui: ['@mui/material', '@mui/icons-material'],
+          datefns: ['date-fns']
         },
       },
     },
@@ -20,4 +21,7 @@ export default defineConfig({
     port: 3000,
     host: true,
   },
+  optimizeDeps: {
+    include: ['date-fns']
+  }
 })
