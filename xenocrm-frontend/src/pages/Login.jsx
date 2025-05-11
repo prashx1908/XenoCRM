@@ -172,6 +172,26 @@ function Login() {
             Continue with Google
           </Button>
 
+          <Button
+            fullWidth
+            variant="outlined"
+            onClick={() => navigate('/dashboard')}
+            sx={{
+              mb: 2,
+              py: 1.2,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontSize: '1rem',
+              borderColor: 'rgba(0, 0, 0, 0.12)',
+              '&:hover': {
+                borderColor: 'primary.main',
+                backgroundColor: 'rgba(25, 118, 210, 0.04)',
+              },
+            }}
+          >
+            Continue to the App
+          </Button>
+
           <Divider sx={{ width: '100%', mb: 2 }}>
             <Typography variant="body2" color="text.secondary">
               OR
