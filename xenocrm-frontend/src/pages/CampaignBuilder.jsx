@@ -224,7 +224,6 @@ function CampaignBuilder() {
           message: 'Campaign created successfully!',
           severity: 'success'
         });
-        // Reset form only for new campaigns
         setCampaignName('');
         setMessage('');
         setRuleGroups([
@@ -236,7 +235,6 @@ function CampaignBuilder() {
         ]);
       }
       
-      // Navigate back to campaign list after a short delay
       setTimeout(() => {
         navigate('/campaigns');
       }, 1500);
@@ -264,7 +262,6 @@ function CampaignBuilder() {
         ruleGroups
       });
       
-      // Show preview in a dialog
       setPreviewDialog({
         open: true,
         data: response.data
@@ -486,11 +483,11 @@ function CampaignBuilder() {
                         <TableRow>
                           <TableCell>Name</TableCell>
                           <TableCell>Email</TableCell>
-                          <TableCell>Spend</TableCell>
+                          <TableCell>₹{previewDialog.data.sampleCustomers[0].spend}</TableCell>
                           <TableCell>Visits</TableCell>
                           <TableCell>Inactive Days</TableCell>
                           <TableCell>Total Orders</TableCell>
-                          <TableCell>Avg Order Value</TableCell>
+                          <TableCell>₹{previewDialog.data.sampleCustomers[0].avg_order_value}</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -498,11 +495,11 @@ function CampaignBuilder() {
                           <TableRow key={customer.id}>
                             <TableCell>{customer.name}</TableCell>
                             <TableCell>{customer.email}</TableCell>
-                            <TableCell>${customer.spend}</TableCell>
+                            <TableCell>₹{customer.spend}</TableCell>
                             <TableCell>{customer.visits}</TableCell>
                             <TableCell>{customer.inactive_days}</TableCell>
                             <TableCell>{customer.total_orders}</TableCell>
-                            <TableCell>${customer.avg_order_value}</TableCell>
+                            <TableCell>₹{customer.avg_order_value}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
