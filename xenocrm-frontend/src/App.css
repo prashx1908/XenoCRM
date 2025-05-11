@@ -1,0 +1,74 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e3e6ee 100%);
+  min-height: 100vh;
+  color: #222;
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card, .MuiPaper-root, .MuiCard-root {
+  border-radius: 18px !important;
+  box-shadow: 0 4px 24px 0 rgba(60,72,100,0.08);
+}
+
+button, .MuiButton-root {
+  border-radius: 12px !important;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+input, .MuiInputBase-root, .MuiTextField-root {
+  border-radius: 10px !important;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.MuiAppBar-root {
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 4px 24px 0 rgba(60,72,100,0.10);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e3e6ee;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfd8dc;
+  border-radius: 8px;
+}
+
+.read-the-docs {
+  color: #888;
+}
