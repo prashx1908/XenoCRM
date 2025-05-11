@@ -4,7 +4,6 @@ const Campaign = require('../models/Campaign');
 const Customer = require('../models/Customer');
 const CommunicationLog = require('../models/CommunicationLog');
 
-// Create a new campaign
 router.post('/', async (req, res) => {
   try {
     const campaign = new Campaign(req.body);
@@ -15,7 +14,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get all campaigns
 router.get('/', async (req, res) => {
   try {
     const campaigns = await Campaign.find().sort({ createdAt: -1 });
@@ -25,15 +23,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Campaign history endpoint
 router.get('/history', async (req, res) => {
   try {
-    // Fetch all campaigns
     const campaigns = await Campaign.find().sort({ createdAt: -1 });
-    // Fetch communication logs for all campaigns
     const logs = await CommunicationLog.find();
 
-    // Aggregate stats per campaign
     const campaignStats = campaigns.map(campaign => {
       const campaignLogs = logs.filter(log => String(log.campaign) === String(campaign._id));
       const sent = campaignLogs.filter(log => log.status === 'sent' || log.status === 'delivered').length;
@@ -52,7 +46,6 @@ router.get('/history', async (req, res) => {
       };
     });
 
-    // Overall stats
     const total = campaignStats.length;
     const totalSent = campaignStats.reduce((sum, c) => sum + c.sent, 0);
     const totalFailed = campaignStats.reduce((sum, c) => sum + c.failed, 0);
@@ -66,7 +59,7 @@ router.get('/history', async (req, res) => {
         failed: totalFailed,
         successRate: overallSuccessRate
       },
-      timeSeries: [] // Placeholder for future time series data
+      timeSeries: []
     });
   } catch (error) {
     console.error('Error fetching campaign history:', error);
@@ -74,7 +67,6 @@ router.get('/history', async (req, res) => {
   }
 });
 
-// Get a specific campaign
 router.get('/:id', async (req, res) => {
   try {
     const campaign = await Campaign.findById(req.params.id);
@@ -87,7 +79,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update a campaign
 router.put('/:id', async (req, res) => {
   try {
     const campaign = await Campaign.findByIdAndUpdate(
@@ -104,7 +95,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete a campaign
 router.delete('/:id', async (req, res) => {
   try {
     const campaign = await Campaign.findByIdAndDelete(req.params.id);
@@ -117,7 +107,6 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Preview audience based on campaign rules
 router.post('/preview', async (req, res) => {
   try {
     const { ruleGroups } = req.body;
@@ -128,33 +117,58 @@ router.post('/preview', async (req, res) => {
     // Evaluate rules for each customer
     const matchingCustomers = customers.filter(customer => {
       return ruleGroups.every(group => {
-        const groupMatches = group.rules.some(rule => {
-          const value = customer[rule.field];
-          const ruleValue = parseFloat(rule.value);
-          
-          switch (rule.operator) {
-            case '>':
-              return value > ruleValue;
-            case '<':
-              return value < ruleValue;
-            case '=':
-              return value === ruleValue;
-            case '>=':
-              return value >= ruleValue;
-            case '<=':
-              return value <= ruleValue;
-            case 'contains':
-              return String(value).toLowerCase().includes(String(rule.value).toLowerCase());
-            case 'starts_with':
-              return String(value).toLowerCase().startsWith(String(rule.value).toLowerCase());
-            case 'ends_with':
-              return String(value).toLowerCase().endsWith(String(rule.value).toLowerCase());
-            default:
-              return false;
-          }
-        });
-        
-        return group.operator === 'OR' ? groupMatches : !groupMatches;
+        if (group.operator === 'AND') {
+          return group.rules.every(rule => {
+            const value = customer[rule.field];
+            const ruleValue = parseFloat(rule.value);
+            switch (rule.operator) {
+              case '>':
+                return value > ruleValue;
+              case '<':
+                return value < ruleValue;
+              case '=':
+                return value === ruleValue;
+              case '>=':
+                return value >= ruleValue;
+              case '<=':
+                return value <= ruleValue;
+              case 'contains':
+                return String(value).toLowerCase().includes(String(rule.value).toLowerCase());
+              case 'starts_with':
+                return String(value).toLowerCase().startsWith(String(rule.value).toLowerCase());
+              case 'ends_with':
+                return String(value).toLowerCase().endsWith(String(rule.value).toLowerCase());
+              default:
+                return false;
+            }
+          });
+        } else if (group.operator === 'OR') {
+          return group.rules.some(rule => {
+            const value = customer[rule.field];
+            const ruleValue = parseFloat(rule.value);
+            switch (rule.operator) {
+              case '>':
+                return value > ruleValue;
+              case '<':
+                return value < ruleValue;
+              case '=':
+                return value === ruleValue;
+              case '>=':
+                return value >= ruleValue;
+              case '<=':
+                return value <= ruleValue;
+              case 'contains':
+                return String(value).toLowerCase().includes(String(rule.value).toLowerCase());
+              case 'starts_with':
+                return String(value).toLowerCase().startsWith(String(rule.value).toLowerCase());
+              case 'ends_with':
+                return String(value).toLowerCase().endsWith(String(rule.value).toLowerCase());
+              default:
+                return false;
+            }
+          });
+        }
+        return false;
       });
     });
 
@@ -177,7 +191,6 @@ router.post('/preview', async (req, res) => {
   }
 });
 
-// Simulate message delivery
 router.post('/:id/deliver', async (req, res) => {
   try {
     const campaign = await Campaign.findById(req.params.id);
@@ -185,10 +198,8 @@ router.post('/:id/deliver', async (req, res) => {
       return res.status(404).json({ error: 'Campaign not found' });
     }
 
-    // Fetch customers based on campaign rules
-    const customers = await Customer.find(); // Replace with actual rule-based filtering
+    const customers = await Customer.find(); 
 
-    // Create communication logs in batches
     const batchSize = 100;
     const batches = [];
     
@@ -203,7 +214,7 @@ router.post('/:id/deliver', async (req, res) => {
         campaign: campaign._id,
         customer: customer._id,
         message: campaign.message,
-        status: 'delivered', // Mark as delivered immediately
+        status: 'delivered',
         deliveryAttempts: 1,
         lastAttemptAt: new Date(),
         metadata: {
@@ -216,10 +227,8 @@ router.post('/:id/deliver', async (req, res) => {
       deliveryLogs.push(...savedLogs);
     }
 
-    // Update campaign status to 'completed' after initiating delivery
     await Campaign.findByIdAndUpdate(req.params.id, { status: 'completed' });
 
-    // Ensure at least one delivered log exists for this campaign
     const logCount = await CommunicationLog.countDocuments({ campaign: campaign._id });
     if (logCount === 0) {
       await CommunicationLog.create({
@@ -233,7 +242,6 @@ router.post('/:id/deliver', async (req, res) => {
       });
     }
 
-    // Start delivery process in background
     processDelivery(campaign, deliveryLogs).catch(error => {
       console.error('Error in background delivery process:', error);
     });
@@ -249,15 +257,13 @@ router.post('/:id/deliver', async (req, res) => {
   }
 });
 
-// Background delivery process
 async function processDelivery(campaign, logs) {
   const vendorService = require('../services/vendorService');
-  const batchSize = 50; // Process 50 messages at a time
+  const batchSize = 50; 
   
   for (let i = 0; i < logs.length; i += batchSize) {
     const batch = logs.slice(i, i + batchSize);
     
-    // Process batch concurrently
     await Promise.all(batch.map(async (log) => {
       try {
         await vendorService.sendMessage({
@@ -273,12 +279,11 @@ async function processDelivery(campaign, logs) {
       }
     }));
 
-    // Add a small delay between batches to prevent overwhelming the system
+  
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
 }
 
-// Delivery receipt endpoint
 router.post('/delivery-receipt', async (req, res) => {
   try {
     const { logs } = req.body;
@@ -287,7 +292,6 @@ router.post('/delivery-receipt', async (req, res) => {
       return res.status(400).json({ error: 'Logs must be an array' });
     }
 
-    // Process logs in batches of 100
     const batchSize = 100;
     const batches = [];
     
@@ -327,11 +331,10 @@ router.post('/delivery-receipt', async (req, res) => {
   }
 });
 
-// Update campaign status
 router.patch('/:id/status', async (req, res) => {
   try {
     const { status } = req.body;
-    console.log('Updating campaign', req.params.id, 'to status', status); // Debug log
+    console.log('Updating campaign', req.params.id, 'to status', status);  
     if (!status) {
       return res.status(400).json({ message: 'Status is required' });
     }
