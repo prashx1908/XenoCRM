@@ -9,9 +9,9 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 - **Dynamic Campaign Builder** with flexible AND/OR rule logic
 - **Audience Preview** before saving segments
 - **Campaign History** with delivery stats (sent, failed, audience size)
-- **Personalized Campaign Delivery** with simulated vendor API (90% sent, 10% failed)
+- **Personalized Campaign Delivery** with simulated vendor API 
 - **Delivery Receipt API** for real-time status updates
-- **Google OAuth 2.0 Authentication** *(pending approval, will be live in 2-3 days)*
+- **Google OAuth 2.0 Authentication**
 - **Rule-Based Message Suggestions** (context-aware, up to 6 variants per campaign)
 - **Clean, Intuitive UX** (React + Material UI)
 - **Deployed on Vercel (frontend) & Render (backend)**
@@ -57,7 +57,7 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 - **Frontend:** React.js (Vite, Material UI)
 - **Backend:** Node.js (Express)
 - **Database:** MongoDB Atlas
-- **Authentication:** Google OAuth 2.0 *(pending approval)*
+- **Authentication:** Google OAuth 2.0 
 - **Deployment:** Vercel (frontend), Render (backend)
 
 ---
@@ -71,8 +71,7 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 ---
 
 ## 🔒 Authentication
-- Google OAuth 2.0 integration *(pending Google approval; will be enabled in 2-3 days)*
-- Only authenticated users can create/view campaigns (once enabled)
+- Google OAuth 2.0 integration 
 
 ---
 
@@ -111,17 +110,15 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 ---
 
 ## 📝 AI Tools & Tech Used
-- No external AI/LLM APIs used
 - All message suggestions are generated using custom rule-based logic
 
 ---
 
 ## ⚡ Known Limitations / Assumptions
 - No pub-sub architecture (Kafka, RabbitMQ, etc.) implemented
-- Google OAuth is pending approval and will be enabled soon
 - Vendor API is simulated for demo purposes
-- Delivery stats are based on simulated responses
 - UI/UX is optimized for desktop
+- No external AI/LLM APIs used
 
 ---
 
