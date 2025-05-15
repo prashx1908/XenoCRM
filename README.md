@@ -1,6 +1,6 @@
-# XenoCRM – Mini CRM Platform 🚀
+# ZENCRM – Mini CRM Platform 🚀
 
-Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the Xeno SDE Internship assignment. XenoCRM empowers you to segment customers, deliver personalized campaigns, and gain actionable insights—all with a clean, intuitive experience.
+Welcome to ZENCRM! This is a modern, full-stack mini CRM platform built for the Xeno SDE Internship assignment. ZENCRM empowers you to segment customers, deliver personalized campaigns, and gain actionable insights—all with a clean, intuitive experience.
 
 ---
 
@@ -84,19 +84,19 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 ## 🏃‍♂️ Local Setup Instructions
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/prashx1908/XenoCRM.git
-   cd XenoCRM
+   git clone https://github.com/prashx1908/ZENCRM.git
+   cd ZENCRM
    ```
 2. **Backend:**
    ```bash
-   cd xenocrm-backend
+   cd ZENCRM-backend
    npm install
    # Set up .env with MongoDB URI, JWT secret, Google OAuth keys
    npm run dev
    ```
 3. **Frontend:**
    ```bash
-   cd ../xenocrm-frontend
+   cd ../ZENCRM-frontend
    npm install
    npm run dev
    ```
@@ -104,8 +104,8 @@ Welcome to XenoCRM! This is a modern, full-stack mini CRM platform built for the
 ---
 
 ## 🌐 Deployment
-- **Frontend:** [Vercel Deployment Link](https://xenocrm-mu.vercel.app)
-- **Backend:** [Render Deployment Link](https://xenocrm-backend.onrender.com)
+- **Frontend:** [Vercel Deployment Link](https://ZENCRM-mu.vercel.app)
+- **Backend:** [Render Deployment Link](https://ZENCRM-backend.onrender.com)
 
 ---
 
