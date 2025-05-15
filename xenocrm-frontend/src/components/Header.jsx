@@ -30,16 +30,10 @@ function Header() {
   return (
     <AppBar position="static" color="default" elevation={2} sx={{ borderRadius: '0 0 18px 18px', background: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 24px 0 rgba(60,72,100,0.10)', fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
       <Toolbar sx={{ minHeight: 72, px: 3, display: 'flex', justifyContent: 'space-between' }}>
-        {/* Logo with white box */}
+        {/* Brand Name */}
         <Box sx={{ display: 'flex', alignItems: 'center', mr: 3, cursor: 'pointer' }} onClick={() => navigate('/dashboard') }>
-            <img
-              src="https://cdn.prod.website-files.com/620353a026ae70e21288308a/6536204e44d00a50cb63e6a4_Vector.svg"
-              alt="XenoCRM Logo"
-              style={{ height: 36 }}
-            />
-        
           <Typography variant="h5" fontWeight={800} color="#1976d2" sx={{ letterSpacing: 1, fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
-          
+            ZENCRM
           </Typography>
         </Box>
         {/* Navigation Buttons */}
