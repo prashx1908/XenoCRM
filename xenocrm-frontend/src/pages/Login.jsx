@@ -104,10 +104,10 @@ function Login() {
             bgcolor: 'white',
           }}
         >
-          {/* Xeno CRM Title and Tagline */}
+          {/* ZENCRM Title and Tagline */}
           <Box sx={{ textAlign: 'center', mb: 2 }}>
-            <Typography variant="h4" fontWeight={900} color="primary" sx={{ letterSpacing: 1, mb: 0.5 }}>
-              Xeno CRM
+            <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 700, color: '#1976d2' }}>
+              ZENCRM
             </Typography>
             <Typography variant="subtitle1" color="text.secondary" sx={{ fontWeight: 500, fontSize: '1rem' }}>
               The modern way to engage your customers
@@ -141,7 +141,7 @@ function Login() {
               Welcome Back
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
-              Sign in to continue to XenoCRM
+              Sign in to continue to ZENCRM
             </Typography>
           </Box>
 
