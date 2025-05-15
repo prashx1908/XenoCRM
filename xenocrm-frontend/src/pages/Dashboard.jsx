@@ -59,7 +59,7 @@ function Dashboard() {
         {/* Hero Section with Shade Box */}
         <Box sx={{ textAlign: 'center', mb: 5, p: 4, bgcolor: 'rgba(25, 118, 210, 0.08)', borderRadius: 4 }}>
           <Typography variant="h3" fontWeight={800} gutterBottom color="primary">
-            Welcome to XenoCRM
+            Welcome to ZENCRM
           </Typography>
           <Typography variant="h6" color="text.secondary" gutterBottom>
             Let's grow your business with smart customer segmentation and personalized campaigns.
@@ -104,22 +104,7 @@ function Dashboard() {
           </Grid>
         </Grid>
 
-        {/* Brand Carousel */}
-        <Box sx={{ position: 'relative', mb: 6 }}>
-          <Typography variant="subtitle1" fontWeight={1000} sx={{ mb: 2, color: '#1976d2', textAlign: 'center' }}>Trusted by Leading Retailers</Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <IconButton onClick={() => scrollBrands(-1)}><ArrowForwardIosIcon sx={{ transform: 'rotate(180deg)' }} /></IconButton>
-            <Box ref={brandScrollRef} sx={{ overflowX: 'auto', whiteSpace: 'nowrap', width: { xs: 280, sm: 600, md: 900 }, mx: 2, py: 1, scrollbarWidth: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
-              {brands.map((brand, idx) => (
-                <Box key={brand} sx={{ display: 'inline-block', mx: 2, px: 3, py: 1.5, bgcolor: '#f5f7fa', borderRadius: 3, fontWeight: 700, fontSize: 18, color: '#1976d2', boxShadow: idx % 2 === 0 ? '0 2px 8px 0 rgba(60,72,100,0.06)' : 'none' }}>
-                  {brand}
-                </Box>
-              ))}
-            </Box>
-            <IconButton onClick={() => scrollBrands(1)}><ArrowForwardIosIcon /></IconButton>
-          </Box>
-        </Box>
-
+      
         {/* Testimonial and Security Section Combined */}
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, mb: 6 }}>
           {/* Testimonial */}
