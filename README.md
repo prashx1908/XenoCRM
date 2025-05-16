@@ -1,6 +1,6 @@
 # ZENCRM – Mini CRM Platform 🚀
 
-Welcome to ZENCRM! This is a modern, full-stack mini CRM platform built for the Xeno SDE Internship assignment. ZENCRM empowers you to segment customers, deliver personalized campaigns, and gain actionable insights—all with a clean, intuitive experience.
+Welcome to ZENCRM! This is a modern, full-stack mini CRM platform. ZENCRM empowers you to segment customers, deliver personalized campaigns, and gain actionable insights—all with a clean, intuitive experience.
 
 ---
 
